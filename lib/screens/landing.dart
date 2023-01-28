@@ -50,14 +50,24 @@ class _landingState extends State<landing> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
                     "Place a request",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                   ),
-                  const SizedBox( height: 50,child: DatePicker()),
+                  const Text("Booking Details",
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                  const Text("Arrival Date"),
+                  const SizedBox(height: 50, child: DatePicker()),
+                  const Text("Departure Date"),
+                  const SizedBox(height: 50, child: DatePicker()),
+                  const Text(
+                    "Category",
+                  ),
                   DropdownButton2(
-                    hint: const Text("Select Catagory: "),
+                    hint: const Text("Select Catagory"),
                     focusColor: Colors.white,
                     icon: const Icon(Icons.arrow_drop_down),
                     value: valueChose,
