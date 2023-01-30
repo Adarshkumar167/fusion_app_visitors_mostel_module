@@ -48,13 +48,13 @@ class _landingState extends State<landing> {
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30))),
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(12.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
                     "Place a request",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                   ),
                   const Text("Booking Details",
                       style:

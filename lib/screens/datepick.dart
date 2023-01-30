@@ -37,8 +37,8 @@ class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
           restorationId: 'date_picker_dialog',
           initialEntryMode: DatePickerEntryMode.calendarOnly,
           initialDate: DateTime.fromMillisecondsSinceEpoch(arguments! as int),
-          firstDate: DateTime(2021),
-          lastDate: DateTime(2024),
+          firstDate: DateTime(2020),
+          lastDate: DateTime(2030),
         );
       },
     );
@@ -71,7 +71,7 @@ class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
           onPressed: () {
             _restorableDatePickerRouteFuture.present();
           },
-          child: const Text('Open Date Picker'),
+          child: const Icon(Icons.calendar_month),
         ),
       ),
     );
