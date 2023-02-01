@@ -11,6 +11,8 @@ class DatePicker extends StatefulWidget {
 
 /// RestorationProperty objects can be used because of RestorationMixin.
 class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
+  DateTime date = DateTime(2023, 02, 01);
+
   @override
   String? get restorationId => widget.restorationId;
 
@@ -67,13 +69,23 @@ class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: OutlinedButton(
-          onPressed: () {
-            _restorableDatePickerRouteFuture.present();
-          },
-          child: const Icon(Icons.calendar_month),
-        ),
-      ),
+          child: Column(
+        children: [
+          OutlinedButton(
+              onPressed: () {
+                _restorableDatePickerRouteFuture.present();
+              },
+              child: Row(
+                children: [
+                  const Icon(Icons.calendar_month),
+                  Text(
+                    '${date.day}/${date.month}/${date.year}',
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                ],
+              )),
+        ],
+      )),
     );
   }
 }

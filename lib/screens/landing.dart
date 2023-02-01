@@ -15,6 +15,7 @@ class _landingState extends State<landing> {
   List items = ['A', 'B', 'C', 'D'];
   // ignore: prefer_typing_uninitialized_variables
   var valueChose;
+  var count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,13 +57,19 @@ class _landingState extends State<landing> {
                     "Place a request",
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.w700),
                   ),
+                  const SizedBox(height: 16),
                   const Text("Booking Details",
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 16),
                   const Text("Arrival Date"),
-                  const SizedBox(height: 50, child: DatePicker()),
+                  const SizedBox(height: 8),
+                  const SizedBox(height: 32, child: DatePicker()),
+                  const SizedBox(height: 16),
                   const Text("Departure Date"),
-                  const SizedBox(height: 50, child: DatePicker()),
+                  const SizedBox(height: 8),
+                  const SizedBox(height: 32, child: DatePicker()),
+                  const SizedBox(height: 16),
                   const Text(
                     "Category",
                   ),
@@ -83,6 +90,76 @@ class _landingState extends State<landing> {
                       );
                     }).toList(),
                   ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "Number of People",
+                  ),
+                  const SizedBox(height: 8),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 32,
+                    width: 94,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (count > 0) {
+                                count--;
+                              }
+                            });
+                          },
+                          child: Container(
+                              width: 30,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5)),
+                                  border: Border.all(
+                                      color: Colors.black, width: 1)),
+                              child: const Icon(
+                                Icons.remove,
+                                size: 20,
+                              )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(count.toString()),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              count++;
+                            });
+                          },
+                          child: Container(
+                              width: 30,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5)),
+                                  border: Border.all(
+                                      color: Colors.black, width: 1)),
+                              child: const Icon(
+                                Icons.add,
+                                size: 20,
+                              )),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    "Remarks",
+                  ),
+                  const SizedBox(height: 8),
+                  const TextField(
+                        maxLines: 5,
+                  )
                 ],
               ),
             )));
