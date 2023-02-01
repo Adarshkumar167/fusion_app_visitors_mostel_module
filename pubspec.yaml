@@ -39,6 +39,8 @@ dependencies:
   date_time_picker: ^2.1.0
   dropdown_button2: ^1.9.2
   get: ^4.6.5
+  intl: ^0.17.0
+  material: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:

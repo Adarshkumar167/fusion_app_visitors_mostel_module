@@ -12,7 +12,8 @@ class DatePicker extends StatefulWidget {
 /// RestorationProperty objects can be used because of RestorationMixin.
 class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
   DateTime date = DateTime(2023, 02, 01);
-
+  String _date =
+      "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}";
   @override
   String? get restorationId => widget.restorationId;
 
@@ -57,6 +58,8 @@ class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
     if (newSelectedDate != null) {
       setState(() {
         _selectedDate.value = newSelectedDate;
+        _date =
+            " ${_selectedDate.value.day}/${_selectedDate.value.month}/${_selectedDate.value.year}";
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text(
               'Selected: ${_selectedDate.value.day}/${_selectedDate.value.month}/${_selectedDate.value.year}'),
@@ -79,7 +82,7 @@ class _MyStatefulWidgetState extends State<DatePicker> with RestorationMixin {
                 children: [
                   const Icon(Icons.calendar_month),
                   Text(
-                    '${date.day}/${date.month}/${date.year}',
+                    _date,
                     style: const TextStyle(fontSize: 18),
                   ),
                 ],
